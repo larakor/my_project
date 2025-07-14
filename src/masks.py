@@ -5,7 +5,7 @@ def get_mask_card_number(card_number: int) -> str:
     ."""
     card_number_str = str(card_number)
     if len(card_number_str) == 16:
-        mask_number = f"{card_number_str[:4]} {card_number_str[4:6]} ** **** {card_number_str[12:]}"
+        mask_number = f"{card_number_str[:4]} {card_number_str[4:6]}** **** {card_number_str[12:]}"
         return mask_number
     return "Некорректный ввод"
 
