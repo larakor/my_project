@@ -5,13 +5,13 @@ def filter_by_currency(transactions, currency_code):
     """Функция принимает на вход список словарей(транзакции) и возвращает
     транзакции с заданной валютой"""
     for transaction in transactions:
-        if transaction['operationAmount']['currency']['code'] == currency_code:
+        if transaction["operationAmount"]["currency"]["code"] == currency_code:
             yield transaction
 
 
 def transaction_descriptions(transactions: list) -> Generator[str, None, None]:
     """Генератор, который принимает список словарей с транзакциями
-     и возвращает описание каждой операции по очереди"""
+    и возвращает описание каждой операции по очереди"""
     for i in transactions:
         yield i["description"]
 
