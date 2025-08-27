@@ -25,6 +25,7 @@ pip install -r requirements.txt
 test_generators
 4. Добавлен модуль decorators для размещения декораторов, а также модуль tests_decorators, где будут тестироваться
 декораторы.
+5. Добавлены модули utils и external_api для конвертации валюты и тесты к ним.
 
 
 ## Документация:
