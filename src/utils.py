@@ -7,15 +7,21 @@ def fin_operation_list(data_from_file):
     """Принимает на вход путь до JSON-файла и возвращает список словарей
     с данными о финансовых транзакциях."""
     try:
-        with open(data_from_file, "r", encoding="utf-8") as f:
-            transactions = json.load(f)
+        with open(data_from_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
 
-            # Проверяем, является ли прочитанная структура списком
-            if isinstance(transactions, list):
-                return transactions
-            else:
-                return []
-    except (json.JSONDecodeError, FileNotFoundError, TypeError):
+        # Проверяем, является ли прочитанный объект списком
+        if isinstance(data, list):
+            return data
+        else:
+            print("Ошибка: данные в файле не являются списком.")
+            return []
+
+    except FileNotFoundError:
+        print(f"Ошибка: файл {data_from_file} не найден.")
+        return []
+    except json.JSONDecodeError:
+        print(f"Ошибка: невозможно декодировать файл {data_from_file}.")
         return []
 
 

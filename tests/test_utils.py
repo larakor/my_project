@@ -5,13 +5,17 @@ from src import external_api  # Импортируем модуль целико
 from src.utils import calculate_transaction_amount, fin_operation_list
 
 
-class TestInputTransaction(unittest.TestCase):
+class TestFinOperationList(unittest.TestCase):
 
-    def test_valid_data(self):
-        mock_data = '[{"id": 1, "amount": 100}]'
-        with patch("builtins.open", mock_open(read_data=mock_data)):
-            result = fin_operation_list("path/to/mockfile.json")
-            self.assertEqual(result, [{"id": 1, "amount": 100}])
+    # Тест на корректный JSON-файл с данными
+    @patch('builtins.open', new_callable=mock_open, read_data='[{"id": 1, "amount": 100}, {"id": 2, "amount": 200}]')
+    def test_valid_json_file(self, mock_file):
+        result = fin_operation_list('valid_file.json')
+        expected_result = [{"id": 1, "amount": 100}, {"id": 2, "amount": 200}]
+        self.assertEqual(result, expected_result, "Функция должна вернуть корректный список транзакций")
+
+
+class TestInputTransaction(unittest.TestCase):
 
     def test_empty_file(self):
         with patch("builtins.open", mock_open(read_data="")):
