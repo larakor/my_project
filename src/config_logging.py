@@ -1,5 +1,4 @@
 import logging
-import os
 
 # Настройка логирования для модуля masks
 logger_masks = logging.getLogger('masks')
