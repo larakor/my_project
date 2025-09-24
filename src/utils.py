@@ -39,3 +39,15 @@ def calculate_transaction_amount(transaction, api_key):
         return round(float(converted_amount), 2)
     else:
         return amount
+
+import logging
+
+logger = logging.getLogger('utils')
+
+def load_data(filename):
+    logger.debug(f'Trying to load data from {filename}')
+    try:
+        # Чтение данных из файла
+        pass
+    except FileNotFoundError:
+        logger.error(f'Data file {filename} not found.')

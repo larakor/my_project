@@ -1,3 +1,8 @@
+import logging
+
+# Получаем логгер для модуля masks
+logger = logging.getLogger('masks')
+
 def get_mask_card_number(card_number: int) -> str:
     """Функция принимает на вход номер карты в виде
          числа и возвращает маску номера по правилу
