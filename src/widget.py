@@ -30,3 +30,4 @@ def get_date(full_date: str) -> str:
 
     required_date = full_date[8:10] + "." + full_date[5:7] + "." + full_date[:4]
     return required_date
+
